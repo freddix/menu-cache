@@ -1,18 +1,16 @@
 Summary:	Library creating and utilizing menu caches
 Name:		menu-cache
-Version:	0.3.3
+Version:	0.5.0
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://download.sourceforge.net/lxde/%{name}-%{version}.tar.gz
-# Source0-md5:	a14b0b162cd64d56c16bf6af16f3a47f
+# Source0-md5:	3a757b0a8a668081eb8685140c0e69e8
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_libexecdir	%{_libdir}/%{name}
 
 %description
 brary creating and utilizing caches to speed up
@@ -56,16 +54,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%dir %{_libexecdir}
-%attr(755,root,root) %{_libexecdir}/menu-cache-gen
-%attr(755,root,root) %{_libexecdir}/menu-cached
+%dir %{_libexecdir}/%{name}
+%attr(755,root,root) %{_libexecdir}/%{name}/menu-cache-gen
+%attr(755,root,root) %{_libexecdir}/%{name}/menu-cached
 %attr(755,root,root) %ghost %{_libdir}/libmenu-cache.so.?
 %attr(755,root,root) %{_libdir}/libmenu-cache.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libmenu-cache.so
-%{_libdir}/libmenu-cache.la
 %{_includedir}/%{name}
 %{_pkgconfigdir}/*.pc
 
